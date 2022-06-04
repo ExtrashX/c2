@@ -153,5 +153,4 @@ if __name__ == '__main__':
     try:
         attack()
     except KeyboardInterrupt:
-    	os.system('cls' if os.name=='nt' else 'clear')
-        stoped()
+        print("Attack was stoped")
